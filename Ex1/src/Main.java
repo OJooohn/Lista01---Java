@@ -13,7 +13,7 @@ public class Main {
       num = Float.parseFloat(input.nextLine());
   
       if(num == 0)
-        System.out.println("\nNão existe divisão por zero! Digite outro número...");
+        System.out.println("\nNao existe divisao por zero! Digite outro número...");
       else
         verificador = true;
     }
@@ -25,12 +25,31 @@ public class Main {
   static void rodarCalculadora(){
 
     Scanner input = new Scanner(System.in);
-    
+    boolean verificadorOp = false;
     float num1, num2;
-    String operacao, div = "/";
+    String operacao = "", div = "/";
+
+    while(verificadorOp == false){
+      System.out.print("Informe a operaçao da conta (+|-|*|/): ");
+      operacao = input.nextLine();
+
+      switch(operacao){
+        case "+": verificadorOp = true;
+        break;
+
+        case "-": verificadorOp = true;
+        break;
+
+        case "*": verificadorOp = true;
+        break;
+
+        case "/": verificadorOp = true;
+        break;
+        
+        default: System.out.println("Operador inválido! Digite novamente...");
+      }
+    }
     
-    System.out.print("Informe a operação da conta (+|-|*|/): ");
-    operacao = input.nextLine();
     
     if(operacao.equals("/")){
       
@@ -57,8 +76,9 @@ public class Main {
     String opcao;
 
     while(menu){
-      System.err.println("[1] Calcular");
-      System.out.println("Digite (sair) para finalizar o programa");
+      System.err.println("[1] Realizar um Cálculo");
+      System.out.println("[0] Finalizar programa");
+      System.out.print("Opçao: ");
       opcao = input.nextLine();
       opcao = opcao.toLowerCase();
 
@@ -66,7 +86,8 @@ public class Main {
         case "1": rodarCalculadora();
         break;
 
-        case "sair": System.exit(0);
+        case "0": System.exit(0);
+        break;
       }
     }
 
