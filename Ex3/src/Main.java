@@ -122,15 +122,23 @@ public class Main {
         break;
 
         case "1": CadastrarConta(input, contas);
+        System.out.println("\nPressione ENTER para continuar...");
+        input.nextLine();
         break;
 
         case "2": SacarValor(input, contas);
+        System.out.println("\nPressione ENTER para continuar...");
+        input.nextLine();
         break;
 
         case "3": DepositarValor(input, contas);
+        System.out.println("\nPressione ENTER para continuar...");
+        input.nextLine();
         break;
 
         case "4": ListarConta(input, contas);
+        System.out.println("\nPressione ENTER para continuar...");
+        input.nextLine();
         break;
         
         default: System.out.println("\nOpçao Inválida! Digite novamente...");
