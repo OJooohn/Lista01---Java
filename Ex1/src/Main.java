@@ -3,8 +3,7 @@ import java.util.Scanner;
 
 public class Main {
 
-  static float verificarNumero(String texto){
-    Scanner input = new Scanner(System.in);
+  static float verificarNumero(String texto, Scanner input){
     boolean verificador = false;
     float num = 0;
   
@@ -22,12 +21,11 @@ public class Main {
   
   }
 
-  static void rodarCalculadora(){
+  static void rodarCalculadora(Scanner input){
 
-    Scanner input = new Scanner(System.in);
     boolean verificadorOp = false;
     float num1, num2;
-    String operacao = "", div = "/";
+    String operacao = "";
 
     while(verificadorOp == false){
       System.out.print("Informe a operaçao da conta (+|-|*|/): ");
@@ -53,8 +51,8 @@ public class Main {
     
     if(operacao.equals("/")){
       
-      num1 = verificarNumero("Informe o número 1: ");
-      num2 = verificarNumero("Informe o número 2: ");    
+      num1 = verificarNumero("Informe o número 1: ", input);
+      num2 = verificarNumero("Informe o número 2: ", input);    
       
     } else {
       System.out.print("Informe o número 1: ");
@@ -83,13 +81,15 @@ public class Main {
       opcao = opcao.toLowerCase();
 
       switch(opcao){
-        case "1": rodarCalculadora();
+        case "1": rodarCalculadora(input);
         break;
 
         case "0": System.exit(0);
         break;
       }
     }
+
+    input.close();
 
   }
 
