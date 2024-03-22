@@ -58,9 +58,27 @@ public class Main {
 
   static void CadastrarConta(Scanner input, List<ContaBancaria> contas){
     
-    System.out.print("\n\nDigite o número da conta: ");
-    int numConta = Integer.parseInt(input.nextLine());
+    boolean condicao = false;
+    int numConta = 0;
 
+    while(condicao == false){
+      System.out.print("\n\nDigite o número da conta: ");
+      numConta = Integer.parseInt(input.nextLine());
+
+      if((contas.size()) != 0){
+        for(int i = 0; i < contas.size(); i++){
+          if(numConta == contas.get(i).getNumConta()){
+            System.out.println("Conta com numero ja existente! Digite novamente...\n\n");
+            break;
+          } else {
+            condicao = true;
+          }
+        }
+      } else {
+        condicao = true;
+      }
+    }
+    
     System.out.print("Digite o nome do titular da conta: ");
     String nomeTitular = input.nextLine();
 
