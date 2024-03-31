@@ -28,7 +28,7 @@ public class Main {
     String operacao = "";
 
     while(verificadorOp == false){
-      System.out.print("Informe a operaçao da conta (+|-|*|/): ");
+      System.out.print("\nInforme a operaçao da conta (+|-|*|/): ");
       operacao = input.nextLine();
 
       switch(operacao){
@@ -44,18 +44,20 @@ public class Main {
         case "/": verificadorOp = true;
         break;
         
-        default: System.out.println("Operador inválido! Digite novamente...");
+        default: System.out.println(">> Operador inválido! Digite novamente...\n");
       }
     }
     
     
     if(operacao.equals("/")){
       
-      num1 = verificarNumero("Informe o número 1: ", input);
+      System.out.print("\nInforme o número 1: ");
+      num1 = Float.parseFloat(input.nextLine());
+
       num2 = verificarNumero("Informe o número 2: ", input);    
       
     } else {
-      System.out.print("Informe o número 1: ");
+      System.out.print("\nInforme o número 1: ");
       num1 = Float.parseFloat(input.nextLine());
       System.out.print("Informe o número 2: ");
       num2 = Float.parseFloat(input.nextLine());
@@ -74,6 +76,7 @@ public class Main {
     String opcao;
 
     while(menu){
+      System.out.println("\n");
       System.err.println("[1] Realizar um Cálculo");
       System.out.println("[0] Finalizar programa");
       System.out.print("Opçao: ");

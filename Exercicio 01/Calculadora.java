@@ -27,7 +27,8 @@ public class Calculadora {
   }
 
   void imprimirResultado(float num1, float num2, String operacao){
-    System.out.println("" + num1 + " " + operacao + " " + num2 + " = " + resultado);
+    System.out.println("\n");
+    System.out.println("" + num1 + " " + operacao + " " + num2 + " = " + deci.format(resultado));
   }
   
 }
