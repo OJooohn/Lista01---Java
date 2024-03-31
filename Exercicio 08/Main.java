@@ -37,6 +37,8 @@ public class Main {
     String endereco = input.nextLine();
 
     System.out.println(">> Pedido realizado com sucesso!\n\n");
+    System.out.print("Pressiona qualquer tecla para continuar...");
+    input.nextLine();
     pedidos.add(new Pedido(sabor, endereco, pizzas.get(i).getPreco()));
 
   }
@@ -67,16 +69,20 @@ public class Main {
       }
 
       System.out.println(">> Pedido cancelado!\n\n");
+      System.out.print("Pressiona qualquer tecla para continuar...");
+      input.nextLine();
       pedidos.get(i - 1).setStatus();
 
     } else {
       System.out.println(">> Nenhum pedido realizado! faça um pedido antes...\n\n");
+      System.out.print("Pressiona qualquer tecla para continuar...");
+      input.nextLine();
       return;
     }
 
   }
 
-  static void LisarPedidos(List<Pedido> pedidos){
+  static void LisarPedidos(Scanner input, List<Pedido> pedidos){
     if(pedidos.size() != 0){
       System.out.println("\n===========================\n");
       for(int i = 0; i < pedidos.size(); i++){
@@ -86,6 +92,9 @@ public class Main {
     } else {
       System.out.println(">> Nenhum pedido feito! Antes realize um pedido...\n\n");
     }
+
+    System.out.print("Pressiona qualquer tecla para continuar...");
+    input.nextLine();
   }
 
   static void AdicionarSabor(Scanner input, List<Pizza> pizzas){
@@ -117,6 +126,8 @@ public class Main {
     String igredientes = input.nextLine();
 
     System.out.println(">> Novo sabor adicionado ao cardápio!\n");
+    System.out.print("Pressiona qualquer tecla para continuar...");
+    input.nextLine();
     pizzas.add(new Pizza(nome, preco, igredientes));
 
   }
@@ -142,6 +153,8 @@ public class Main {
       System.out.println(">> Nenhum pedido realizado! Faça um pedido antes...\n\n");
     }
 
+    System.out.print("Pressiona qualquer tecla para continuar...");
+    input.nextLine();
 
   }
   
@@ -158,6 +171,7 @@ public class Main {
     String opcao = "";
 
     while(opcao.equals("6") == false){
+      System.out.print("\033c");
       System.out.println("[1] Fazer pedido");
       System.out.println("[2] Cancelar pedido");
       System.out.println("[3] Listar pedidos");
@@ -168,19 +182,33 @@ public class Main {
       opcao = input.nextLine();
 
       switch(opcao){
-        case "1": NovoPedido(input, pedidos, pizzas);
-        break;
-
-        case "2": CancelarPedido(input, pedidos);
+        case "1":
+        System.out.print("\033c");
+        System.out.print(">> Novo Pedido");
+        NovoPedido(input, pedidos, pizzas);
         break;
         
-        case "3": LisarPedidos(pedidos);
+        case "2":
+        System.out.print(">> Cancelar Pedido");
+        System.out.print("\033c");
+        CancelarPedido(input, pedidos);
         break;
-
-        case "4": AdicionarSabor(input, pizzas);
+        
+        case "3":
+        System.out.print(">> Listar Pedidos");
+        System.out.print("\033c");
+        LisarPedidos(input, pedidos);
         break;
-
-        case "5": Relatorio(input, pedidos);
+        
+        case "4":
+        System.out.print(">> Adicionar Sabor");
+        System.out.print("\033c");
+        AdicionarSabor(input, pizzas);
+        break;
+        
+        case "5":
+        System.out.print("\033c");
+        Relatorio(input, pedidos);
         break;
 
         case "6":
